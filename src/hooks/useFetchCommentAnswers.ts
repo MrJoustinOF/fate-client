@@ -8,7 +8,9 @@ export const useFetchCommentAnswers = (id: string) => {
     setLoading(true);
 
     const answers = await (
-      await fetch("http://localhost:3001/api/fate/answers/comment/" + id)
+      await fetch(
+        "https://ur-apis-center.herokuapp.com/api/fate/answers/comment/" + id
+      )
     ).json();
 
     setAnswers(answers.reverse());

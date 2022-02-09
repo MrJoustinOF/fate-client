@@ -25,7 +25,7 @@ export const AnswerForm = ({
 
     if (desc.trim().length) {
       const { msg } = await (
-        await fetch("http://localhost:3001/api/fate/answers", {
+        await fetch("https://ur-apis-center.herokuapp.com/api/fate/answers", {
           method: "POST",
           body: JSON.stringify({
             comment_id,

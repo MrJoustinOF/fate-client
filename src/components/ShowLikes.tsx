@@ -29,7 +29,7 @@ export const ShowLikes = ({
     !loged && navigate("/login");
 
     const { msg } = await (
-      await fetch("http://localhost:3001/api/fate/likes", {
+      await fetch("https://ur-apis-center.herokuapp.com/api/fate/likes", {
         method: "POST",
         body: JSON.stringify({
           post_id,
@@ -50,14 +50,17 @@ export const ShowLikes = ({
 
   const handleDeleteLike = async () => {
     const { msg } = await (
-      await fetch("http://localhost:3001/api/fate/likes/" + likeId, {
-        method: "DELETE",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-          authorization: "bearer " + localStorage.getItem("token"),
-        },
-      })
+      await fetch(
+        "https://ur-apis-center.herokuapp.com/api/fate/likes/" + likeId,
+        {
+          method: "DELETE",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            authorization: "bearer " + localStorage.getItem("token"),
+          },
+        }
+      )
     ).json();
 
     if (msg === "like deleted") {

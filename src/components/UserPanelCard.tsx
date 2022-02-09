@@ -18,27 +18,33 @@ export const UserPanelCard = ({
   const handleChangeRole = async () => {
     if (role === "client") {
       const { msg } = await (
-        await fetch("http://localhost:3001/api/fate/users/setAdmin/" + id, {
-          method: "PUT",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-            authorization: "bearer " + localStorage.getItem("token"),
-          },
-        })
+        await fetch(
+          "https://ur-apis-center.herokuapp.com/api/fate/users/setAdmin/" + id,
+          {
+            method: "PUT",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+              authorization: "bearer " + localStorage.getItem("token"),
+            },
+          }
+        )
       ).json();
 
       msg === "admin updated" && fetchUsersAgain();
     } else if (role === "admin") {
       const { msg } = await (
-        await fetch("http://localhost:3001/api/fate/users/setClient/" + id, {
-          method: "PUT",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-            authorization: "bearer " + localStorage.getItem("token"),
-          },
-        })
+        await fetch(
+          "https://ur-apis-center.herokuapp.com/api/fate/users/setClient/" + id,
+          {
+            method: "PUT",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+              authorization: "bearer " + localStorage.getItem("token"),
+            },
+          }
+        )
       ).json();
 
       msg === "client updated" && fetchUsersAgain();

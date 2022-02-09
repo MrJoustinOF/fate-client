@@ -10,7 +10,7 @@ export const useFetchOnePost = (id: string) => {
     setLoading(true);
 
     const post = await (
-      await fetch("http://localhost:3001/api/fate/posts/" + id)
+      await fetch("https://ur-apis-center.herokuapp.com/api/fate/posts/" + id)
     ).json();
 
     !post && navigate("/notfound");

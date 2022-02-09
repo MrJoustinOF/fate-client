@@ -27,7 +27,7 @@ export const CommentForm = ({
 
     if (desc.trim().length > 0) {
       const { msg } = await (
-        await fetch("http://localhost:3001/api/fate/comments", {
+        await fetch("https://ur-apis-center.herokuapp.com/api/fate/comments", {
           method: "POST",
           body: JSON.stringify({
             post_id,

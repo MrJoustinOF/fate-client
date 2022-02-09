@@ -53,7 +53,7 @@ export const CreatePostForm = () => {
 
     if (errs.length === 0) {
       const { msg } = await (
-        await fetch("http://localhost:3001/api/fate/posts", {
+        await fetch("https://ur-apis-center.herokuapp.com/api/fate/posts", {
           method: "POST",
           body: JSON.stringify({
             title,

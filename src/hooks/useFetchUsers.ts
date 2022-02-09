@@ -8,7 +8,7 @@ export const useFetchUsers = () => {
     setLoading(true);
 
     const users = await (
-      await fetch("http://localhost:3001/api/fate/users", {
+      await fetch("https://ur-apis-center.herokuapp.com/api/fate/users", {
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",

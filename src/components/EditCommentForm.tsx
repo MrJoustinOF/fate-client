@@ -23,17 +23,20 @@ export const EditCommentForm = ({
       const { _id: id }: any = comment;
 
       const { msg } = await (
-        await fetch("http://localhost:3001/api/fate/comments/" + id, {
-          method: "PUT",
-          body: JSON.stringify({
-            desc: desc.trim(),
-          }),
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-            authorization: "bearer " + localStorage.getItem("token"),
-          },
-        })
+        await fetch(
+          "https://ur-apis-center.herokuapp.com/api/fate/comments/" + id,
+          {
+            method: "PUT",
+            body: JSON.stringify({
+              desc: desc.trim(),
+            }),
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+              authorization: "bearer " + localStorage.getItem("token"),
+            },
+          }
+        )
       ).json();
 
       if (msg === "comment updated") {

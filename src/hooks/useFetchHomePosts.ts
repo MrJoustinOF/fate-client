@@ -6,7 +6,7 @@ export const useFetchHomePosts = () => {
 
   const fetchPosts = useCallback(async () => {
     const posts = await (
-      await fetch("http://localhost:3001/api/fate/posts/home")
+      await fetch("https://ur-apis-center.herokuapp.com/api/fate/posts/home")
     ).json();
 
     setPosts(posts);

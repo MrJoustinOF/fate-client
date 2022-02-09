@@ -6,7 +6,7 @@ export const useFetchAllPosts = () => {
 
   const fetchPosts = useCallback(async () => {
     const posts = await (
-      await fetch("http://localhost:3001/api/fate/posts")
+      await fetch("https://ur-apis-center.herokuapp.com/api/fate/posts")
     ).json();
 
     setPosts(posts.reverse());

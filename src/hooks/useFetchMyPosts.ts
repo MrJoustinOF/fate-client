@@ -8,13 +8,16 @@ export const useFetchMyPosts = (userId: string) => {
     setLoading(true);
 
     const posts = await (
-      await fetch("http://localhost:3001/api/fate/posts/user/" + userId, {
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-          authorization: "bearer " + localStorage.getItem("token"),
-        },
-      })
+      await fetch(
+        "https://ur-apis-center.herokuapp.com/api/fate/posts/user/" + userId,
+        {
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            authorization: "bearer " + localStorage.getItem("token"),
+          },
+        }
+      )
     ).json();
 
     setPosts(posts);

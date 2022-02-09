@@ -8,7 +8,9 @@ export const useFetchPostLikes = (id: string) => {
     setLoading(true);
 
     const likes = await (
-      await fetch("http://localhost:3001/api/fate/likes/post/" + id)
+      await fetch(
+        "https://ur-apis-center.herokuapp.com/api/fate/likes/post/" + id
+      )
     ).json();
 
     setLikes(likes);

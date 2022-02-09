@@ -73,20 +73,23 @@ export const MeForm = () => {
       const birth_date = new Date(birthDate);
 
       const { msg, token } = await (
-        await fetch("http://localhost:3001/api/fate/users/" + id, {
-          method: "PUT",
-          body: JSON.stringify({
-            name,
-            password,
-            avatarData,
-            birth_date: birth_date.toUTCString(),
-          }),
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-            authorization: "bearer " + localStorage.getItem("token"),
-          },
-        })
+        await fetch(
+          "https://ur-apis-center.herokuapp.com/api/fate/users/" + id,
+          {
+            method: "PUT",
+            body: JSON.stringify({
+              name,
+              password,
+              avatarData,
+              birth_date: birth_date.toUTCString(),
+            }),
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+              authorization: "bearer " + localStorage.getItem("token"),
+            },
+          }
+        )
       ).json();
 
       if (msg === "user updated") {

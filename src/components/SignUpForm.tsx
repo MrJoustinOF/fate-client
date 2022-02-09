@@ -63,19 +63,22 @@ export const SignUpForm = () => {
       const birth_date = new Date(birthDate);
 
       const { msg, token } = await (
-        await fetch("http://localhost:3001/api/fate/users/signup", {
-          method: "POST",
-          body: JSON.stringify({
-            name,
-            email,
-            password,
-            birth_date: birth_date.toUTCString(),
-          }),
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-        })
+        await fetch(
+          "https://ur-apis-center.herokuapp.com/api/fate/users/signup",
+          {
+            method: "POST",
+            body: JSON.stringify({
+              name,
+              email,
+              password,
+              birth_date: birth_date.toUTCString(),
+            }),
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+            },
+          }
+        )
       ).json();
 
       if (msg === "user saved") {

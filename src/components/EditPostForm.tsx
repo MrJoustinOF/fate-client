@@ -65,19 +65,22 @@ export const EditPostForm = ({ post }: EditPostFormProps) => {
     if (errs.length === 0) {
       const { _id: id }: any = post;
       const { msg } = await (
-        await fetch("http://localhost:3001/api/fate/posts/" + id, {
-          method: "PUT",
-          body: JSON.stringify({
-            title,
-            desc,
-            imagesData: images,
-          }),
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-            authorization: "bearer " + localStorage.getItem("token"),
-          },
-        })
+        await fetch(
+          "https://ur-apis-center.herokuapp.com/api/fate/posts/" + id,
+          {
+            method: "PUT",
+            body: JSON.stringify({
+              title,
+              desc,
+              imagesData: images,
+            }),
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+              authorization: "bearer " + localStorage.getItem("token"),
+            },
+          }
+        )
       ).json();
 
       setLoading(false);
